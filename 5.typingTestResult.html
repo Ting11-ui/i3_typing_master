@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #f0fdfa 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        .results-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .test-card {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .test-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #14b8a6 0%, #10b981 100%);
+            padding: 2rem;
+            color: white;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .test-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .datetime-info {
+            display: flex;
+            gap: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .datetime-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .test-meta {
+            text-align: right;
+        }
+
+        .test-type {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+
+        .difficulty-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-box {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-box.wpm {
+            background: #dbeafe;
+        }
+
+        .stat-box.cpm {
+            background: #f3e8ff;
+        }
+
+        .stat-box.accuracy {
+            background: #dcfce7;
+        }
+
+        .stat-box.duration {
+            background: #fef3c7;
+        }
+
+        .stat-icon {
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value.wpm { color: #2563eb; }
+        .stat-value.cpm { color: #7c3aed; }
+        .stat-value.accuracy { color: #16a34a; }
+        .stat-value.duration { color: #d97706; }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .detailed-stats {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 2rem;
+        }
+
+        .detailed-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .detailed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .detail-item {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.75rem;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .detail-value.correct { color: #16a34a; }
+        .detail-value.incorrect { color: #dc2626; }
+        .detail-value.total { color: #374151; }
+
+        .performance-badge {
+            display: inline-flex;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .performance-excellent {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .performance-good {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+
+        .performance-average {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .performance-poor {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .progress-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .progress-value {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0.5rem;
+            background: #e5e7eb;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #14b8a6 0%, #10b981 100%);
+            border-radius: 50px;
+            transition: width 0.5s ease;
+        }
+
+        .icon {
+            width: 1rem;
+            height: 1rem;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .stat-icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .card-header {
+                padding: 1.5rem;
+            }
+
+            .card-body {
+                padding: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .test-meta {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Your Typing Test Results</h1>
+            <p>Track your progress and improve your typing skills</p>
+        </div>
+
+        <div class="results-container">
+            <!-- Test Result 1 -->
+            <div class="test-card">
+                <div class="card-header">
+                    <div class="header-content">
+                        <div class="test-info">
+                            <h3>Test #1</h3>
+                            <div class="datetime-info">
+                                <div class="datetime-item">
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    <span>2025-06-04</span>
+                                </div>
+                                <div class="datetime-item">
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12,6 12,12 16,14"></polyline>
+                                    </svg>
+                                    <span>14:30</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="test-meta">
+                            <div class="test-type">Standard Test</div>
+                            <div class="difficulty-badge">Medium</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-box wpm">
+                                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <polyline points="23,6 13.5,15.5 8.5,10.5 1,18"></polyline>
+                                    <polyline points="17,6 23,6 23,12"></polyline>
+                                </svg>
+                                <div class="stat-value wpm">68</div>
+                                <div class="stat-label">WPM</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-box cpm">
+                                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                                    <line x1="12" y1="20" x2="12" y2="10"></line>
+                                    <line x1="18" y1="20" x2="18" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="16"></line>
+                                </svg>
+                                <div class="stat-value cpm">340</div>
+                                <div class="stat-label">CPM</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-box accuracy">
+                                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="6"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                </svg>
+                                <div class="stat-value accuracy">94.5%</div>
+                                <div class="stat-label">Accuracy</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-box duration">
+                                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12,6 12,12 16,14"></polyline>
+                                </svg>
+                                <div class="stat-value duration">2 min</div>
+                                <div class="stat-label">Duration</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detailed-stats">
+                        <div class="detailed-header">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2">
+                                <path d="m9 12 2 2 4-4"></path>
+                                <path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"></path>
+                                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                            </svg>
+                            Detailed Statistics
+                        </div>
+                        <div class="detailed-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">Correct Words</div>
+                                <div class="detail-value correct">136</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Incorrect Words</div>
+                                <div class="detail-value incorrect">8</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Total Words</div>
+                                <div class="detail-value total">144</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Performance</div>
+                                <div class="performance-badge performance-good">Good</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="progress-label">Accuracy Progress</span>
+                            <span class="progress-value">94.5%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 94.5%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Result 2 -->
+            <div class="test-card">
+                <div class="card-header">
+                    <div class="header-content">
+                        <div class="test-info">
+                            <h3>Test #2</h3>
+                            <div class="datetime-info">
+                                <div class="datetime-item">
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    <span>2025-06-03</span>
+                                </div>
+                                <div class="datetime-item">
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12,6 12,12 16,14"></polyline>
+                                    </svg>
+                                    <span>16:45</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="test-meta">
+                            <div class="test-type">Professional Text</div>
+                            <div class="difficulty-badge">Hard</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-box wpm">
+                                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+                                    <polyline points="23,6 13.5,15.5 8.5,10.5 1,18"></polyline>
+                                    <polyline points="17,6 23,6 23,12"></polyline>
+                                </svg>
+                                <div class="stat-value wpm">72</div>
+                                <div class="stat-label">WPM</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-box cpm">
+                                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                                    <line x1="12" y1="20" x2="12" y2="10"></line>
+                                    <line x1="18" y1="20" x2="18" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="16"></line>
+                                </svg>
+                                <div class="stat-value cpm">360</div>
+                                <div class="stat-label">CPM</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-box accuracy">
+                                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="6"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                </svg>
+                                <div class="stat-value accuracy">96.2%</div>
+                                <div class="stat-label">Accuracy</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-box duration">
+                                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12,6 12,12 16,14"></polyline>
+                                </svg>
+                                <div class="stat-value duration">2 min</div>
+                                <div class="stat-label">Duration</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detailed-stats">
+                        <div class="detailed-header">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2">
+                                <path d="m9 12 2 2 4-4"></path>
+                                <path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"></path>
+                                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                            </svg>
+                            Detailed Statistics
+                        </div>
+                        <div class="detailed-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">Correct Words</div>
+                                <div class="detail-value correct">144</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Incorrect Words</div>
+                                <div class="detail-value incorrect">6</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Total Words</div>
+                                <div class="detail-value total">150</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Performance</div>
+                                <div class="performance-badge performance-excellent">Excellent</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="progress-label">Accuracy Progress</span>
+                            <span class="progress-value">96.2%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 96.2%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
