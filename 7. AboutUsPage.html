@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - i3 Typing Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .team-card {
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .timeline-item {
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 12px;
+            width: 12px;
+            height: 12px;
+            background: #059669;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #d1fae5;
+        }
+        
+        .stats-counter {
+            animation: countUp 2s ease-out;
+        }
+        
+        @keyframes countUp {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-50 via-white to-teal-50 text-gray-800 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-white to-emerald-50 shadow-sm border-b">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-emerald-600">
+                <a href="index.html">i3 Typing Master</a>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-emerald-600">Home</a>
+                <a href="#" class="text-emerald-600 font-medium">About</a>
+                <a href="typing-test.html" class="text-gray-600 hover:text-emerald-600">Typing Test</a>
+                <a href="login.html" class="bg-emerald-600 text-white px-4 py-2 rounded hover:bg-emerald-700">Login</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-2 text-gray-600 hover:text-emerald-600">Home</a>
+                <a href="#" class="block py-2 text-emerald-600 font-medium">About</a>
+                <a href="typing-test.html" class="block py-2 text-gray-600 hover:text-emerald-600">Typing Test</a>
+                <a href="login.html" class="block py-2 text-emerald-600">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-100/30 to-teal-100/30"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-in">
+            <h1 class="text-5xl font-bold mb-6 text-gray-900">
+                About i3 Typing Master
+            </h1>
+            <p class="text-xl mb-8 text-gray-600 max-w-3xl mx-auto">
+                Empowering millions of users worldwide to master the art of fast, accurate typing through innovative technology and personalized learning experiences.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-16 bg-gradient-to-r from-white to-emerald-50/30">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900">Our Mission</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        At i3 Typing Master, we believe that efficient typing is a fundamental skill in today's digital world. Our mission is to make typing education accessible, engaging, and effective for learners of all ages and skill levels.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        We combine cutting-edge technology with proven educational methodologies to create personalized learning experiences that adapt to each user's unique needs and pace.
+                    </p>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-emerald-100 to-teal-100 p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-4 text-emerald-800">Our Vision</h3>
+                        <p class="text-emerald-700 leading-relaxed">
+                            To become the world's leading platform for typing education, where every person can unlock their full potential through enhanced digital communication skills, regardless of their starting point or background.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="py-16 bg-gradient-to-r from-gray-50 to-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Our Story</h2>
+            
+            <div class="space-y-8">
+                <div class="timeline-item pl-8 border-l-2 border-emerald-200 fade-in">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                        <h3 class="text-xl font-bold text-emerald-600 mb-2">2019 - The Beginning</h3>
+                        <p class="text-gray-600">
+                            Founded by a team of educators and developers who recognized the growing need for effective typing education in the digital age. Our founders noticed that traditional typing programs were outdated and failed to engage modern learners.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item pl-8 border-l-2 border-emerald-200 fade-in">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                        <h3 class="text-xl font-bold text-emerald-600 mb-2">2020 - First Launch</h3>
+                        <p class="text-gray-600">
+                            Launched our beta version with 500 initial users. The positive feedback encouraged us to continue developing features like real-time analytics, personalized learning paths, and gamification elements.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item pl-8 border-l-2 border-emerald-200 fade-in">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                        <h3 class="text-xl font-bold text-emerald-600 mb-2">2021 - Rapid Growth</h3>
+                        <p class="text-gray-600">
+                            Reached 10,000 active users and partnered with educational institutions. Introduced advanced features like AI-powered difficulty adjustment and comprehensive progress tracking.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item pl-8 border-l-2 border-emerald-200 fade-in">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                        <h3 class="text-xl font-bold text-emerald-600 mb-2">2022 - Global Expansion</h3>
+                        <p class="text-gray-600">
+                            Expanded internationally with multi-language support and culturally adapted content. Launched mobile applications and reached 100,000 registered users worldwide.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item pl-8 border-l-2 border-emerald-200 fade-in">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                        <h3 class="text-xl font-bold text-emerald-600 mb-2">2023-2024 - Innovation</h3>
+                        <p class="text-gray-600">
+                            Introduced machine learning algorithms for personalized learning, launched corporate training programs, and achieved over 500,000 active users with 25+ million typing tests completed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-16 bg-gradient-to-r from-emerald-50/50 to-teal-50/50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Meet Our Team</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="team-card bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                    <div class="w-24 h-24 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-2xl">AS</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2 text-gray-900">Alex Smith</h3>
+                    <p class="text-emerald-600 text-center mb-3 font-medium">CEO & Co-Founder</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Former educator with 15+ years in EdTech. Passionate about making learning accessible and effective for everyone.
+                    </p>
+                </div>
+                
+                <div class="team-card bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-2xl">MJ</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2 text-gray-900">Maria Johnson</h3>
+                    <p class="text-blue-600 text-center mb-3 font-medium">CTO & Co-Founder</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Full-stack developer with expertise in AI/ML. Leads our technical innovation and platform development.
+                    </p>
+                </div>
+                
+                <div class="team-card bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-2xl">DL</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2 text-gray-900">David Lee</h3>
+                    <p class="text-purple-600 text-center mb-3 font-medium">Head of Product</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        UX designer and product strategist focused on creating intuitive, user-centered learning experiences.
+                    </p>
+                </div>
+                
+                <div class="team-card bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                    <div class="w-24 h-24 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-2xl">SC</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2 text-gray-900">Sarah Chen</h3>
+                    <p class="text-pink-600 text-center mb-3 font-medium">Head of Marketing</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Digital marketing expert with a passion for educational outreach and community building.
+                    </p>
+                </div>
+                
+                <div class="team-card bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                    <div class="w-24 h-24 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-2xl">RG</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2 text-gray-900">Robert Garcia</h3>
+                    <p class="text-indigo-600 text-center mb-3 font-medium">Data Scientist</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        PhD in Machine Learning, specializes in educational analytics and personalized learning algorithms.
+                    </p>
+                </div>
+                
+                <div class="team-card bg-white p-6 rounded-lg shadow-sm border border-emerald-100">
+                    <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-2xl">LB</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2 text-gray-900">Lisa Brown</h3>
+                    <p class="text-yellow-600 text-center mb-3 font-medium">Customer Success</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Dedicated to ensuring every user achieves their typing goals through personalized support and guidance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-16 bg-gradient-to-r from-white to-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Our Values</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-emerald-100 fade-in">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Accessibility</h3>
+                    <p class="text-gray-600 text-sm">Making quality typing education available to learners worldwide, regardless of background or ability.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-emerald-100 fade-in">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Innovation</h3>
+                    <p class="text-gray-600 text-sm">Continuously pushing the boundaries of educational technology to create better learning experiences.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-emerald-100 fade-in">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Excellence</h3>
+                    <p class="text-gray-600 text-sm">Maintaining the highest standards in everything we do, from product development to customer service.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-emerald-100 fade-in">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Community</h3>
+                    <p class="text-gray-600 text-sm">Building a supportive community where learners can connect, share, and grow together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="py-16 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Global Impact</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stats-counter">
+                    <div class="text-4xl font-bold mb-2">500K+</div>
+                    <div class="text-emerald-200">Active Users</div>
+                </div>
+                <div class="stats-counter">
+                    <div class="text-4xl font-bold mb-2">25M+</div>
+                    <div class="text-emerald-200">Tests Completed</div>
+                </div>
+                <div class="stats-counter">
+                    <div class="text-4xl font-bold mb-2">150+</div>
+                    <div class="text-emerald-200">Countries</div>
+                </div>
+                <div class="stats-counter">
+                    <div class="text-4xl font-bold mb-2">98%</div>
+                    <div class="text-emerald-200">User Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="py-16 bg-gradient-to-r from-gray-50 to-emerald-50/30">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 text-gray-900">Ready to Join Our Mission?</h2>
+            <p class="text-xl mb-8 text-gray-600">
+                Whether you're a learner, educator, or partner, we'd love to hear from you.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="typing-test.html" class="bg-emerald-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-emerald-700 inline-block transition-colors">
+                    Start Your Journey
+                </a>
+                <a href="mailto:contact@i3typingmaster.com" class="bg-white text-emerald-600 border-2 border-emerald-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-emerald-50 inline-block transition-colors">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-emerald-400">i3 Typing Master</h3>
+                    <p class="text-gray-300">Master the art of fast and accurate typing with our comprehensive training platform.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Features</h4>
+                    <div class="space-y-2">
+                        <div><a href="typing-test.html" class="text-gray-300 hover:text-white">Typing Test</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Speed Analysis</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Progress Tracking</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Leaderboard</a></div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <div class="space-y-2">
+                        <div><a href="#" class="text-gray-300 hover:text-white">About Us</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Careers</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Press</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Partners</a></div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <div class="space-y-2">
+                        <div><a href="#" class="text-gray-300 hover:text-white">Help Center</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Contact Us</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 i3 Typing Master. All rights reserved. | Empowering faster, more accurate typing worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
