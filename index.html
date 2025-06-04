@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i3 Typing Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-emerald-50 via-white to-teal-50 text-gray-800 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-white to-emerald-50 shadow-sm border-b">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-emerald-600">
+            I3 Typing Master
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-600 hover:text-emerald-600">Home</a>
+                <a href="#features" class="text-gray-600 hover:text-emerald-600">Features</a>
+                <a href="#about" class="text-gray-600 hover:text-emerald-600">About</a>
+                <a href="login.html" class="bg-emerald-600 text-white px-4 py-2 rounded hover:bg-emerald-700">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-100/30 to-teal-100/30"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <h1 class="text-5xl font-bold mb-6 text-gray-900">
+                Test Your Typing Speed
+            </h1>
+            <p class="text-xl mb-8 text-gray-600">
+                Improve your typing skills with our simple and effective typing test
+            </p>
+            <a href="typing-test.html" class="bg-emerald-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-emerald-700 inline-block">
+                Start Typing Test
+            </a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-16 bg-gradient-to-r from-gray-50 to-emerald-50/30">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-r from-white to-emerald-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-emerald-100">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Real-time Speed Tracking</h3>
+                    <p class="text-gray-600">Monitor your words per minute (WPM) and characters per minute (CPM) as you type with live updates</p>
+                </div>
+                <div class="bg-gradient-to-r from-white to-emerald-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-emerald-100">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Precision Accuracy Monitor</h3>
+                    <p class="text-gray-600">Track your typing accuracy percentage and identify common mistakes to improve your precision</p>
+                </div>
+                <div class="bg-gradient-to-r from-white to-emerald-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-emerald-100">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Detailed Progress History</h3>
+                    <p class="text-gray-600">View comprehensive charts and statistics showing your improvement over time with personalized insights</p>
+                </div>
+                <div class="bg-gradient-to-r from-white to-emerald-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-emerald-100">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Multiple Test Modes</h3>
+                    <p class="text-gray-600">Choose from various difficulty levels, text lengths, and custom practice materials</p>
+                </div>
+                <div class="bg-gradient-to-r from-white to-emerald-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-emerald-100">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Smart Learning</h3>
+                    <p class="text-gray-600">AI-powered recommendations and personalized exercises based on your typing patterns</p>
+                </div>
+                <div class="bg-gradient-to-r from-white to-emerald-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-emerald-100">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Global Leaderboard</h3>
+                    <p class="text-gray-600">Compare your scores with typists worldwide and compete in daily challenges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-16 bg-gradient-to-r from-white to-gray-50">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-12 text-gray-900">How It Works</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-emerald-600 font-bold">1</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Choose Test</h3>
+                    <p class="text-gray-600">Select your preferred difficulty level and test duration</p>
+                </div>
+                <div>
+                    <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-emerald-600 font-bold">2</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Start Typing</h3>
+                    <p class="text-gray-600">Type the displayed text as accurately and quickly as possible</p>
+                </div>
+                <div>
+                    <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-emerald-600 font-bold">3</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Get Results</h3>
+                    <p class="text-gray-600">Receive detailed analytics on your speed, accuracy, and improvement areas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gradient-to-r from-emerald-50/50 to-teal-50/50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">What Our Users Say</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-r from-white to-emerald-50/50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-emerald-600 font-bold text-lg">S</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Sarah Johnson</h4>
+                            <p class="text-gray-600 text-sm">Professional Writer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"i3 Typing Master helped me increase my typing speed from 45 WPM to 78 WPM in just 2 months. The detailed analytics really helped me identify my weak spots!"</p>
+                </div>
+                <div class="bg-gradient-to-r from-white to-emerald-50/50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-emerald-600 font-bold text-lg">M</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Mike Chen</h4>
+                            <p class="text-gray-600 text-sm">Software Developer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"As a developer, fast and accurate typing is crucial. This platform's real-time feedback and progress tracking made all the difference in my productivity."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-16 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-bold mb-2">25K+</div>
+                    <div class="text-emerald-200">Tests Taken</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold mb-2">92</div>
+                    <div class="text-emerald-200">Avg WPM</div>
+                </div>
+                <div class="div">
+                    <div class="text-3xl font-bold mb-2">98%</div>
+                    <div class="text-emerald-200">Satisfaction</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold mb-2">24/7</div>
+                    <div class="text-emerald-200">Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-gray-50 to-emerald-50/30">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 text-gray-900">Ready to Improve Your Typing?</h2>
+            <p class="text-xl mb-8 text-gray-600">Join thousands of users who have already improved their typing skills</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="typing-test.html" class="bg-emerald-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-emerald-700 inline-block">
+                    Start Free Test
+                </a>
+                <a href="register.html" class="bg-white text-emerald-600 border-2 border-emerald-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-emerald-50 inline-block">
+                    Create Account
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about" class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-emerald-400">i3 Typing Master</h3>
+                    <p class="text-gray-300">Master the art of fast and accurate typing with our comprehensive training platform.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Features</h4>
+                    <div class="space-y-2">
+                        <div><a href="typing-test.html" class="text-gray-300 hover:text-white">Typing Test</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Speed Analysis</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Progress Tracking</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Leaderboard</a></div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Account</h4>
+                    <div class="space-y-2">
+                        <div><a href="login.html" class="text-gray-300 hover:text-white">Login</a></div>
+                        <div><a href="register.html" class="text-gray-300 hover:text-white">Register</a></div>
+                        <div><a href="reset-password.html" class="text-gray-300 hover:text-white">Reset Password</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Profile Settings</a></div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <div class="space-y-2">
+                        <div><a href="#" class="text-gray-300 hover:text-white">Help Center</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Contact Us</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 i3 Typing Master. All rights reserved. | Empowering faster, more accurate typing worldwide.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
