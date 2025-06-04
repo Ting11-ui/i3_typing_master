@@ -1,4 +1,4 @@
-# i3_typing_master
+# i3_typing_masterAdd commentMore actions
 I3 TYPING MASTER
 # Typing Master
 
