@@ -1,4 +1,4 @@
-# i3_typing_master
+# i3_typing_masterAdd commentMore actions
 I3 TYPING MASTER
 # Typing Master
 
@@ -70,4 +70,8 @@ _(Update based on your tech stack)_
 1. Clone the repository:
    ```bash
    git clone https://github.com/Ting11-ui/i3_typing_master.git
+<<<<<<< HEAD
    ```
+=======
+   ```
+>>>>>>> b9f15d0675b9d0d920a62b73636b368a4d78ee06
