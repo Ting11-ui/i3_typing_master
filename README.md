@@ -70,5 +70,5 @@ _(Update based on your tech stack)_
 1. Clone the repository:
    ```bash
    git clone https://github.com/Ting11-ui/i3_typing_master.git
-   cd i3_typing_master
+   
    ```
